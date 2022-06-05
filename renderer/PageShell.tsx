@@ -1,13 +1,17 @@
-import React from 'react'
-import logo from './logo.svg'
-import { PageContextProvider } from './usePageContext'
-import type { PageContext } from './types'
-import './PageShell.css'
-import { Link } from './Link'
+import React from "react";
+import logo from "./logo.svg";
+import { PageContextProvider } from "./usePageContext";
+import type { PageContext } from "./types";
+import "./PageShell.css";
+import { Link } from "./Link";
 
-export { PageShell }
-
-function PageShell({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {
+function PageShell({
+  children,
+  pageContext,
+}: {
+  children: React.ReactNode;
+  pageContext: PageContext;
+}) {
   return (
     <React.StrictMode>
       <PageContextProvider pageContext={pageContext}>
@@ -25,21 +29,21 @@ function PageShell({ children, pageContext }: { children: React.ReactNode; pageC
         </Layout>
       </PageContextProvider>
     </React.StrictMode>
-  )
+  );
 }
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div
       style={{
-        display: 'flex',
+        display: "flex",
         maxWidth: 900,
-        margin: 'auto',
+        margin: "auto",
       }}
     >
       {children}
     </div>
-  )
+  );
 }
 
 function Sidebar({ children }: { children: React.ReactNode }) {
@@ -48,15 +52,15 @@ function Sidebar({ children }: { children: React.ReactNode }) {
       style={{
         padding: 20,
         flexShrink: 0,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        lineHeight: '1.8em',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        lineHeight: "1.8em",
       }}
     >
       {children}
     </div>
-  )
+  );
 }
 
 function Content({ children }: { children: React.ReactNode }) {
@@ -65,13 +69,13 @@ function Content({ children }: { children: React.ReactNode }) {
       style={{
         padding: 20,
         paddingBottom: 50,
-        borderLeft: '2px solid #eee',
-        minHeight: '100vh',
+        borderLeft: "2px solid #eee",
+        minHeight: "100vh",
       }}
     >
       {children}
     </div>
-  )
+  );
 }
 
 function Logo() {
@@ -86,5 +90,7 @@ function Logo() {
         <img src={logo} height={64} width={64} alt="logo" />
       </a>
     </div>
-  )
+  );
 }
+
+export { PageShell };
